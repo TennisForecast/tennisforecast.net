@@ -4,7 +4,7 @@ import { TrendingUp, Mail, Twitter } from "lucide-react";
 const footerLinks = {
   product: [
     { label: "Projections", href: "/projections", comingSoon: true },
-    { label: "Tournaments", href: "/tournaments", comingSoon: true },
+    { label: "Tournaments", href: "/tournaments" },
     { label: "Tools", href: "/tools" },
     { label: "Blog", href: "/blog", comingSoon: true },
   ],

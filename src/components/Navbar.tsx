@@ -6,7 +6,7 @@ import { Menu, X, TrendingUp } from "lucide-react";
 
 const navLinks = [
   { href: "/projections", label: "Projections", comingSoon: true },
-  { href: "/tournaments", label: "Tournaments", comingSoon: true },
+  { href: "/tournaments", label: "Tournaments" },
   { href: "/tools", label: "Tools" },
   { href: "/blog", label: "Blog", comingSoon: true },
   { href: "/about", label: "About" },
