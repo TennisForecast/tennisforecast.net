@@ -7,8 +7,11 @@ Runs Monte Carlo simulations on a tournament draw and produces:
   2. Optionally, a JSON file in src/data/tournaments/ for the website
 
 Usage:
-  python scripts/sim.py draws/dallas-2026.xlsx
-  python scripts/sim.py draws/dallas-2026.xlsx --sims 500000 --format bo5
+  Command line:
+    python scripts/sim.py draws/dallas-2026.xlsx
+    python scripts/sim.py draws/dallas-2026.xlsx --sims 500000 --format bo5
+  Spyder: Press Run (F5). Uses DEFAULT_DRAW below. You'll be prompted: Deploy to site? (y/n), then Push to GitHub? (y/n).
+  To remove a tournament: delete its .json from src/data/tournaments/, then run with --refresh-registry (or run a sim and deploy); then push.
 
 Draw file format (Excel, sheet named "Draw"):
   Column A: DrawPosition (1-based, determines bracket placement)
@@ -33,11 +36,20 @@ import json
 import math
 import os
 import random
+import subprocess
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 
 import pandas as pd
+
+
+# ─── Default for Spyder / "Run" with no arguments ───────────────────
+# When you press Run in Spyder (no command-line args), this draw is used.
+# Change to the file you want, e.g. "draws/rotterdam-2026.xlsx"
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.dirname(_SCRIPT_DIR)
+DEFAULT_DRAW = os.path.join(_PROJECT_ROOT, "draws", "dallas2026.xlsx")
 
 
 # ─── Elo / probability functions ───────────────────────────────────
@@ -491,25 +503,79 @@ export function getAllTournamentSlugs(): string[] {{
     print(f"  Tournament registry updated: {registry_path}")
 
 
+def run_git_push(project_root: str, commit_message: str) -> bool:
+    """Run git add, commit, push. Returns True if push succeeded."""
+    try:
+        subprocess.run(
+            ["git", "add", "."],
+            cwd=project_root,
+            check=True,
+            capture_output=True,
+        )
+        subprocess.run(
+            ["git", "commit", "-m", commit_message],
+            cwd=project_root,
+            check=True,
+            capture_output=True,
+        )
+        result = subprocess.run(
+            ["git", "push"],
+            cwd=project_root,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0:
+            print(f"  Pushed to GitHub. Site will update in ~30–60 seconds.")
+            return True
+        else:
+            print(f"  Git push failed: {result.stderr or result.stdout}")
+            return False
+    except subprocess.CalledProcessError as e:
+        print(f"  Git error: {e}")
+        return False
+    except FileNotFoundError:
+        print("  Git not found. Push manually from a terminal.")
+        return False
+
+
 # ─── Main ──────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="TennisForecast Tournament Simulator")
-    parser.add_argument("draw", help="Path to draw Excel file (e.g. draws/dallas-2026.xlsx)")
+    parser.add_argument(
+        "draw",
+        nargs="?",
+        default=None,
+        help="Path to draw Excel file (e.g. draws/dallas-2026.xlsx). Omit when using --refresh-registry.",
+    )
     parser.add_argument("--sims", type=int, default=1_000_000, help="Number of simulations (default: 1,000,000)")
     parser.add_argument("--format", choices=["bo3", "bo5"], default="bo3", help="Match format (default: bo3)")
     parser.add_argument("--squeeze", type=float, default=0.99, help="Probability squeeze factor (default: 0.99)")
     parser.add_argument("--yes", action="store_true", help="Skip deploy confirmation")
+    parser.add_argument(
+        "--refresh-registry",
+        action="store_true",
+        help="Only regenerate the tournament registry from existing JSON files (use after adding/removing a .json file).",
+    )
     args = parser.parse_args()
 
-    if not os.path.exists(args.draw):
-        print(f"Error: Draw file not found: {args.draw}")
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    site_data_dir = os.path.join(project_root, "src", "data", "tournaments")
+
+    # Mode: refresh registry only (e.g. after removing a tournament)
+    if args.refresh_registry:
+        print(f"\n  Refreshing tournament registry from {site_data_dir} ...")
+        update_tournament_registry(project_root, site_data_dir)
+        print(f"  Done. Commit and push to update the live site.\n")
+        return
+
+    # Normal mode: need a draw file
+    draw_path = args.draw if args.draw else DEFAULT_DRAW
+    if not os.path.exists(draw_path):
+        print(f"Error: Draw file not found: {draw_path}")
         sys.exit(1)
 
-    # Resolve paths relative to project root
-    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     sim_output_dir = os.path.join(project_root, "sim-output")
-    site_data_dir = os.path.join(project_root, "src", "data", "tournaments")
     os.makedirs(sim_output_dir, exist_ok=True)
     os.makedirs(site_data_dir, exist_ok=True)
 
@@ -517,9 +583,9 @@ def main():
     print(f"\n{'='*60}")
     print(f"  TennisForecast Simulator")
     print(f"{'='*60}")
-    print(f"\n  Reading draw: {args.draw}")
+    print(f"\n  Reading draw: {draw_path}")
 
-    players, tournament_info = read_draw(args.draw)
+    players, tournament_info = read_draw(draw_path)
     real_players = [p for p in players if not p["name"].startswith("BYE-")]
     print(f"  Players: {len(real_players)} ({tournament_info['drawSize']} draw)")
     print(f"  Tournament: {tournament_info['name']}")
@@ -570,9 +636,20 @@ def main():
         json_path = os.path.join(site_data_dir, f"{slug}.json")
         save_site_json(results, quarter_analysis, tournament_info, args.sims, json_path)
         update_tournament_registry(project_root, site_data_dir)
-        print(f"\n  Ready to go live! Run:")
-        print(f"    cd {project_root}")
-        print(f"    git add . && git commit -m 'Update {tournament_info['name']} projections' && git push")
+        print(f"\n  Site files updated.")
+        # Push prompt
+        if args.yes:
+            do_push = False
+        else:
+            push_response = input("\n  Push to GitHub? (y/n): ").strip().lower()
+            do_push = push_response in ("y", "yes")
+        if do_push:
+            commit_msg = f"Update {tournament_info['name']} projections"
+            run_git_push(project_root, commit_msg)
+        else:
+            print(f"\n  To go live later, run in a terminal:")
+            print(f"    cd {project_root}")
+            print(f"    git add . && git commit -m 'Update {tournament_info['name']} projections' && git push")
     else:
         print(f"\n  Results saved to {excel_path} for review.")
         print(f"  Run again with --yes to deploy when ready.")
@@ -581,4 +658,8 @@ def main():
 
 
 if __name__ == "__main__":
+    # When run from Spyder (or double-click) with no args, use DEFAULT_DRAW
+    if len(sys.argv) == 1:
+        sys.argv.append(DEFAULT_DRAW)
+        print(f"  (No draw file specified — using default: {DEFAULT_DRAW})")
     main()

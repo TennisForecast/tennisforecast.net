@@ -1,5 +1,4 @@
 import dallas_2026Data from "@/data/tournaments/dallas-2026.json";
-import rotterdam_2026Data from "@/data/tournaments/rotterdam-2026.json";
 
 export interface TournamentPlayer {
   name: string;
@@ -49,7 +48,6 @@ export interface TournamentData {
 // This file is updated by scripts/sim.py when deploying.
 const tournamentRegistry: Record<string, TournamentData> = {
   "dallas-2026": dallas_2026Data as unknown as TournamentData,
-  "rotterdam-2026": rotterdam_2026Data as unknown as TournamentData,
 };
 
 export function getAllTournaments(): TournamentData[] {
