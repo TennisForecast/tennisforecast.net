@@ -8,9 +8,11 @@ interface Props {
   drawSize: number;
 }
 
-type SortKey = "draw" | "name" | "r32" | "r16" | "qf" | "sf" | "f" | "w";
+type SortKey = "draw" | "name" | string;
 
 const roundLabels: Record<string, string> = {
+  r128: "R128",
+  r64: "R64",
   r32: "R32",
   r16: "R16",
   qf: "QF",
@@ -19,10 +21,14 @@ const roundLabels: Record<string, string> = {
   w: "W",
 };
 
-function getRoundColumns(drawSize: number): (keyof typeof roundLabels)[] {
-  if (drawSize >= 128) return ["r32", "r16", "qf", "sf", "f", "w"];
-  if (drawSize >= 64) return ["r32", "r16", "qf", "sf", "f", "w"];
-  return ["r16", "qf", "sf", "f", "w"];
+// Canonical round order for sorting columns
+const roundOrder = ["r128", "r64", "r32", "r16", "qf", "sf", "f", "w"];
+
+function detectRoundColumns(players: TournamentPlayer[]): string[] {
+  if (players.length === 0) return [];
+  // Get all probability keys from the first player, sorted by canonical order
+  const keys = Object.keys(players[0].probabilities);
+  return roundOrder.filter((r) => keys.includes(r));
 }
 
 export function FullDrawTable({ players, drawSize }: Props) {
@@ -30,7 +36,7 @@ export function FullDrawTable({ players, drawSize }: Props) {
   const [sortAsc, setSortAsc] = useState(false);
   const [quarterFilter, setQuarterFilter] = useState<string>("all");
 
-  const rounds = getRoundColumns(drawSize);
+  const rounds = detectRoundColumns(players);
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {

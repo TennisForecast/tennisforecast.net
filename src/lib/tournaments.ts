@@ -1,19 +1,12 @@
-import dallasData from "@/data/tournaments/dallas-2026.json";
-import rotterdamData from "@/data/tournaments/rotterdam-2026.json";
+import dallas_2026Data from "@/data/tournaments/dallas-2026.json";
+import rotterdam_2026Data from "@/data/tournaments/rotterdam-2026.json";
 
 export interface TournamentPlayer {
   name: string;
   seed: number | null;
   drawPosition: number;
   quarter: string;
-  probabilities: {
-    r32: number;
-    r16: number;
-    qf: number;
-    sf: number;
-    f: number;
-    w: number;
-  };
+  probabilities: Record<string, number>;
   titleOdds: string;
 }
 
@@ -52,11 +45,11 @@ export interface TournamentData {
   quarterAnalysis: QuarterAnalysis[];
 }
 
-// Registry of all tournament data files
-// Add new tournaments here as you create JSON files
+// Auto-generated registry — do not edit manually.
+// This file is updated by scripts/sim.py when deploying.
 const tournamentRegistry: Record<string, TournamentData> = {
-  "dallas-2026": dallasData as unknown as TournamentData,
-  "rotterdam-2026": rotterdamData as unknown as TournamentData,
+  "dallas-2026": dallas_2026Data as unknown as TournamentData,
+  "rotterdam-2026": rotterdam_2026Data as unknown as TournamentData,
 };
 
 export function getAllTournaments(): TournamentData[] {
