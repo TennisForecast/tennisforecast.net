@@ -12,7 +12,7 @@
   },
   "simConfig": {
     "numSimulations": 1000000,
-    "lastUpdated": "2026-02-12T16:26:51.068351+00:00",
+    "lastUpdated": "2026-02-12T21:30:41.152861+00:00",
     "note": ""
   },
   "players": [
@@ -23,11 +23,11 @@
       "quarter": "Q1",
       "probabilities": {
         "qf": 1.0,
-        "sf": 0.6255,
-        "f": 0.4521,
-        "w": 0.2525
+        "sf": 0.6181,
+        "f": 0.4501,
+        "w": 0.25
       },
-      "titleOdds": "+296"
+      "titleOdds": "+300"
     },
     {
       "name": "Brandon Nakashima",
@@ -49,11 +49,11 @@
       "quarter": "Q1",
       "probabilities": {
         "qf": 1.0,
-        "sf": 0.3745,
-        "f": 0.2288,
-        "w": 0.0997
+        "sf": 0.3819,
+        "f": 0.2389,
+        "w": 0.1049
       },
-      "titleOdds": "+903"
+      "titleOdds": "+853"
     },
     {
       "name": "Frances Tiafoe",
@@ -69,17 +69,17 @@
       "titleOdds": "N/A"
     },
     {
-      "name": "Qualifier1",
+      "name": "Jack Pinnington Jones",
       "seed": null,
       "drawPosition": 5,
       "quarter": "Q2",
       "probabilities": {
-        "qf": 0.3553,
-        "sf": 0.1333,
-        "f": 0.0299,
-        "w": 0.0072
+        "qf": 1.0,
+        "sf": 0.3548,
+        "f": 0.0828,
+        "w": 0.0203
       },
-      "titleOdds": "+13878"
+      "titleOdds": "+4819"
     },
     {
       "name": "Eliot Spizzirri",
@@ -87,12 +87,12 @@
       "drawPosition": 6,
       "quarter": "Q2",
       "probabilities": {
-        "qf": 0.6447,
-        "sf": 0.3359,
-        "f": 0.1152,
-        "w": 0.0413
+        "qf": 0.0,
+        "sf": 0.0,
+        "f": 0.0,
+        "w": 0.0
       },
-      "titleOdds": "+2320"
+      "titleOdds": "N/A"
     },
     {
       "name": "Ethan Quinn",
@@ -100,12 +100,12 @@
       "drawPosition": 7,
       "quarter": "Q2",
       "probabilities": {
-        "qf": 0.4154,
-        "sf": 0.2004,
-        "f": 0.0569,
-        "w": 0.0171
+        "qf": 0.0,
+        "sf": 0.0,
+        "f": 0.0,
+        "w": 0.0
       },
-      "titleOdds": "+5757"
+      "titleOdds": "N/A"
     },
     {
       "name": "Marin Cilic",
@@ -113,12 +113,12 @@
       "drawPosition": 8,
       "quarter": "Q2",
       "probabilities": {
-        "qf": 0.5846,
-        "sf": 0.3304,
-        "f": 0.1171,
-        "w": 0.0435
+        "qf": 1.0,
+        "sf": 0.6452,
+        "f": 0.2283,
+        "w": 0.0839
       },
-      "titleOdds": "+2197"
+      "titleOdds": "+1092"
     },
     {
       "name": "Denis Shapovalov",
@@ -126,12 +126,12 @@
       "drawPosition": 9,
       "quarter": "Q3",
       "probabilities": {
-        "qf": 0.7073,
-        "sf": 0.3336,
-        "f": 0.1266,
-        "w": 0.0568
+        "qf": 1.0,
+        "sf": 0.479,
+        "f": 0.1841,
+        "w": 0.0841
       },
-      "titleOdds": "+1661"
+      "titleOdds": "+1089"
     },
     {
       "name": "Aleksandar Kovacevic",
@@ -139,12 +139,12 @@
       "drawPosition": 10,
       "quarter": "Q3",
       "probabilities": {
-        "qf": 0.2927,
-        "sf": 0.0789,
-        "f": 0.0167,
-        "w": 0.0043
+        "qf": 0.0,
+        "sf": 0.0,
+        "f": 0.0,
+        "w": 0.0
       },
-      "titleOdds": "+22915"
+      "titleOdds": "N/A"
     },
     {
       "name": "Alex Michelsen",
@@ -166,11 +166,11 @@
       "quarter": "Q3",
       "probabilities": {
         "qf": 1.0,
-        "sf": 0.5875,
-        "f": 0.2377,
-        "w": 0.113
+        "sf": 0.521,
+        "f": 0.2109,
+        "w": 0.1003
       },
-      "titleOdds": "+785"
+      "titleOdds": "+897"
     },
     {
       "name": "Tommy Paul",
@@ -178,12 +178,12 @@
       "drawPosition": 13,
       "quarter": "Q4",
       "probabilities": {
-        "qf": 0.7464,
-        "sf": 0.341,
-        "f": 0.2033,
-        "w": 0.1109
+        "qf": 0.7468,
+        "sf": 0.3411,
+        "f": 0.198,
+        "w": 0.1074
       },
-      "titleOdds": "+802"
+      "titleOdds": "+831"
     },
     {
       "name": "Miomir Kecmanovic",
@@ -191,12 +191,12 @@
       "drawPosition": 14,
       "quarter": "Q4",
       "probabilities": {
-        "qf": 0.2536,
-        "sf": 0.0606,
-        "f": 0.0205,
-        "w": 0.0061
+        "qf": 0.2532,
+        "sf": 0.0605,
+        "f": 0.0193,
+        "w": 0.0057
       },
-      "titleOdds": "+16189"
+      "titleOdds": "+17441"
     },
     {
       "name": "Adrian Mannarino",
@@ -205,11 +205,11 @@
       "quarter": "Q4",
       "probabilities": {
         "qf": 0.1695,
-        "sf": 0.0507,
-        "f": 0.0162,
-        "w": 0.0045
+        "sf": 0.0508,
+        "f": 0.0152,
+        "w": 0.0043
       },
-      "titleOdds": "+22231"
+      "titleOdds": "+23358"
     },
     {
       "name": "Ben Shelton",
@@ -219,10 +219,10 @@
       "probabilities": {
         "qf": 0.8305,
         "sf": 0.5476,
-        "f": 0.379,
-        "w": 0.2432
+        "f": 0.3724,
+        "w": 0.2392
       },
-      "titleOdds": "+311"
+      "titleOdds": "+318"
     }
   ],
   "quarterAnalysis": [
@@ -233,12 +233,12 @@
         {
           "name": "Taylor Fritz",
           "seed": null,
-          "sfProb": 0.6255
+          "sfProb": 0.6181
         },
         {
           "name": "Sebastian Korda",
           "seed": null,
-          "sfProb": 0.3745
+          "sfProb": 0.3819
         },
         {
           "name": "Brandon Nakashima",
@@ -257,24 +257,24 @@
       "label": "Second Quarter",
       "topContenders": [
         {
-          "name": "Eliot Spizzirri",
-          "seed": null,
-          "sfProb": 0.3359
-        },
-        {
           "name": "Marin Cilic",
           "seed": null,
-          "sfProb": 0.3304
+          "sfProb": 0.6452
+        },
+        {
+          "name": "Jack Pinnington Jones",
+          "seed": null,
+          "sfProb": 0.3548
+        },
+        {
+          "name": "Eliot Spizzirri",
+          "seed": null,
+          "sfProb": 0.0
         },
         {
           "name": "Ethan Quinn",
           "seed": null,
-          "sfProb": 0.2004
-        },
-        {
-          "name": "Qualifier1",
-          "seed": null,
-          "sfProb": 0.1333
+          "sfProb": 0.0
         }
       ]
     },
@@ -285,17 +285,17 @@
         {
           "name": "Alejandro Davidovich Fokina",
           "seed": null,
-          "sfProb": 0.5875
+          "sfProb": 0.521
         },
         {
           "name": "Denis Shapovalov",
           "seed": null,
-          "sfProb": 0.3336
+          "sfProb": 0.479
         },
         {
           "name": "Aleksandar Kovacevic",
           "seed": null,
-          "sfProb": 0.0789
+          "sfProb": 0.0
         },
         {
           "name": "Alex Michelsen",
@@ -316,17 +316,17 @@
         {
           "name": "Tommy Paul",
           "seed": null,
-          "sfProb": 0.341
+          "sfProb": 0.3411
         },
         {
           "name": "Miomir Kecmanovic",
           "seed": null,
-          "sfProb": 0.0606
+          "sfProb": 0.0605
         },
         {
           "name": "Adrian Mannarino",
           "seed": null,
-          "sfProb": 0.0507
+          "sfProb": 0.0508
         }
       ]
     }
