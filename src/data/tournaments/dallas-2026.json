@@ -7,12 +7,12 @@
     "location": "Dallas, USA",
     "startDate": "2026-02-09",
     "endDate": "2026-02-15",
-    "drawSize": 8,
+    "drawSize": 4,
     "status": "LIVE"
   },
   "simConfig": {
     "numSimulations": 1000000,
-    "lastUpdated": "2026-02-13T16:20:36.163872+00:00",
+    "lastUpdated": "2026-02-14T16:34:23.947381+00:00",
     "note": ""
   },
   "players": [
@@ -22,95 +22,43 @@
       "drawPosition": 1,
       "quarter": "Q1",
       "probabilities": {
-        "sf": 0.605,
-        "f": 0.4305,
-        "w": 0.2318
+        "f": 0.6118,
+        "w": 0.3045
       },
-      "titleOdds": "+331"
-    },
-    {
-      "name": "Sebastian Korda",
-      "seed": null,
-      "drawPosition": 2,
-      "quarter": "Q1",
-      "probabilities": {
-        "sf": 0.395,
-        "f": 0.2451,
-        "w": 0.1066
-      },
-      "titleOdds": "+838"
-    },
-    {
-      "name": "Jack Pinnington Jones",
-      "seed": null,
-      "drawPosition": 3,
-      "quarter": "Q2",
-      "probabilities": {
-        "sf": 0.2751,
-        "f": 0.0518,
-        "w": 0.0101
-      },
-      "titleOdds": "+9813"
+      "titleOdds": "+228"
     },
     {
       "name": "Marin Cilic",
       "seed": null,
-      "drawPosition": 4,
+      "drawPosition": 2,
       "quarter": "Q2",
       "probabilities": {
-        "sf": 0.7249,
-        "f": 0.2726,
-        "w": 0.1028
+        "f": 0.3882,
+        "w": 0.151
       },
-      "titleOdds": "+873"
+      "titleOdds": "+562"
     },
     {
       "name": "Denis Shapovalov",
       "seed": null,
-      "drawPosition": 5,
+      "drawPosition": 3,
       "quarter": "Q3",
       "probabilities": {
-        "sf": 0.5209,
-        "f": 0.2125,
-        "w": 0.1023
+        "f": 0.3742,
+        "w": 0.1745
       },
-      "titleOdds": "+877"
-    },
-    {
-      "name": "Alejandro Davidovich Fokina",
-      "seed": null,
-      "drawPosition": 6,
-      "quarter": "Q3",
-      "probabilities": {
-        "sf": 0.4791,
-        "f": 0.1864,
-        "w": 0.0859
-      },
-      "titleOdds": "+1063"
-    },
-    {
-      "name": "Miomir Kecmanovic",
-      "seed": null,
-      "drawPosition": 7,
-      "quarter": "Q4",
-      "probabilities": {
-        "sf": 0.1863,
-        "f": 0.0584,
-        "w": 0.017
-      },
-      "titleOdds": "+5776"
+      "titleOdds": "+473"
     },
     {
       "name": "Ben Shelton",
       "seed": null,
-      "drawPosition": 8,
+      "drawPosition": 4,
       "quarter": "Q4",
       "probabilities": {
-        "sf": 0.8137,
-        "f": 0.5428,
-        "w": 0.3435
+        "f": 0.6258,
+        "w": 0.3699
       },
-      "titleOdds": "+191"
+      "titleOdds": "+170"
     }
   ],
   "quarterAnalysis": [
@@ -121,12 +69,7 @@
         {
           "name": "Taylor Fritz",
           "seed": null,
-          "sfProb": 0.605
-        },
-        {
-          "name": "Sebastian Korda",
-          "seed": null,
-          "sfProb": 0.395
+          "sfProb": 0
         }
       ]
     },
@@ -137,12 +80,7 @@
         {
           "name": "Marin Cilic",
           "seed": null,
-          "sfProb": 0.7249
-        },
-        {
-          "name": "Jack Pinnington Jones",
-          "seed": null,
-          "sfProb": 0.2751
+          "sfProb": 0
         }
       ]
     },
@@ -153,12 +91,7 @@
         {
           "name": "Denis Shapovalov",
           "seed": null,
-          "sfProb": 0.5209
-        },
-        {
-          "name": "Alejandro Davidovich Fokina",
-          "seed": null,
-          "sfProb": 0.4791
+          "sfProb": 0
         }
       ]
     },
@@ -169,12 +102,7 @@
         {
           "name": "Ben Shelton",
           "seed": null,
-          "sfProb": 0.8137
-        },
-        {
-          "name": "Miomir Kecmanovic",
-          "seed": null,
-          "sfProb": 0.1863
+          "sfProb": 0
         }
       ]
     }
