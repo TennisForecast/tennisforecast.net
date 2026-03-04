@@ -1,3 +1,4 @@
+import IndianWells_2026Data from "@/data/tournaments/IndianWells-2026.json";
 import dallas_2026Data from "@/data/tournaments/dallas-2026.json";
 
 export interface TournamentPlayer {
@@ -47,6 +48,7 @@ export interface TournamentData {
 // Auto-generated registry — do not edit manually.
 // This file is updated by scripts/sim.py when deploying.
 const tournamentRegistry: Record<string, TournamentData> = {
+  "IndianWells-2026": IndianWells_2026Data as unknown as TournamentData,
   "dallas-2026": dallas_2026Data as unknown as TournamentData,
 };
 

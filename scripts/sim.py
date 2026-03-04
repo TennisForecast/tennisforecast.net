@@ -49,7 +49,7 @@ import pandas as pd
 # Change to the file you want, e.g. "draws/rotterdam-2026.xlsx"
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _PROJECT_ROOT = os.path.dirname(_SCRIPT_DIR)
-DEFAULT_DRAW = os.path.join(_PROJECT_ROOT, "draws", "dallas2026.xlsx")
+DEFAULT_DRAW = os.path.join(_PROJECT_ROOT, "draws", "iw2026.xlsx")
 
 
 # ─── Elo / probability functions ───────────────────────────────────
